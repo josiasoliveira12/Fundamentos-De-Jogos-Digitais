@@ -1,22 +1,23 @@
 extends CharacterBody2D
 
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@onready var animacao := $AnimatedSprite2D as AnimatedSprite2D
+@onready var animacao: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
-	# Aplica a gravidade enquanto estiver no ar.
+	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Inicia o salto no chão.
+	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	print(direction)
-
 	if direction:
 		velocity.x = direction * SPEED
 		animacao.scale.x = direction
@@ -28,9 +29,9 @@ func _physics_process(delta: float) -> void:
 	if position.y > 500:
 		position.y = 0
 
-	if not is_on_floor():
+	if !is_on_floor():
 		animacao.play("jump")
-	elif direction:
+	elif is_on_floor() and velocity.x != 0:
 		animacao.play("run")
 	else:
 		animacao.play("idle")

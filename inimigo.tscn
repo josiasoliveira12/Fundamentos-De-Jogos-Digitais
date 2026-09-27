@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ddaln2j18iogx"]
+
+[ext_resource type="Texture2D" uid="uid://dvjjhdl8d3xe0" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="1_030df"]
+[ext_resource type="Script" uid="uid://cnxxqbgmx1loq" path="res://inimigo.gd" id="1_g45jm"]
+[ext_resource type="Texture2D" uid="uid://cnc3i7qln34v6" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="2_0b8xr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8xr"]
+atlas = ExtResource("1_030df")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45jm"]
+atlas = ExtResource("1_030df")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1su0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45jm")
+}],
+"loop": 1,
+"name": &"caminhar",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0b8xr")
+}],
+"loop": 0,
+"name": &"morrer",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enrbn"]
+radius = 6.0
+
+[node name="inimigo" type="CharacterBody2D" unique_id=2117980196]
+script = ExtResource("1_g45jm")
+metadata/_edit_group_ = true
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=1517502827]
+sprite_frames = SubResource("SpriteFrames_1su0k")
+animation = &"caminhar"
+autoplay = "caminhar"
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=77809712]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_enrbn")
+
+[node name="batevolta" type="RayCast2D" parent="." unique_id=1291609763]
+target_position = Vector2(-8, 0)
