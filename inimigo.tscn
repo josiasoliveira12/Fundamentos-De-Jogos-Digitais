@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://ddaln2j18iogx"]
 
-[ext_resource type="Texture2D" uid="uid://dvjjhdl8d3xe0" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="1_030df"]
+[ext_resource type="Texture2D" uid="uid://bw5g344j2yv82" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="1_030df"]
 [ext_resource type="Script" uid="uid://cnxxqbgmx1loq" path="res://inimigo.gd" id="1_g45jm"]
-[ext_resource type="Texture2D" uid="uid://cnc3i7qln34v6" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="2_0b8xr"]
+[ext_resource type="Texture2D" uid="uid://n65p68oes0od" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="2_0b8xr"]
+[ext_resource type="PackedScene" uid="uid://du1ras2tdpmhe" path="res://dano_inimigo.tscn" id="4_enrbn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0b8xr"]
 atlas = ExtResource("1_030df")
@@ -37,7 +38,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_enrbn"]
 radius = 6.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mafy"]
+size = Vector2(9, 1)
+
 [node name="inimigo" type="CharacterBody2D" unique_id=2117980196]
+position = Vector2(1, 2)
 script = ExtResource("1_g45jm")
 metadata/_edit_group_ = true
 
@@ -52,3 +57,9 @@ shape = SubResource("CircleShape2D_enrbn")
 
 [node name="batevolta" type="RayCast2D" parent="." unique_id=1291609763]
 target_position = Vector2(-8, 0)
+
+[node name="dano_inimigo" parent="." unique_id=1502625073 instance=ExtResource("4_enrbn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dano_inimigo" unique_id=859042806]
+position = Vector2(0.5, -6.5)
+shape = SubResource("RectangleShape2D_4mafy")
