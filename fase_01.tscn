@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cysgrir7hv00l" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="2_jbu07"]
 [ext_resource type="Texture2D" uid="uid://c474f74glctgm" path="res://assets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_ajqja"]
 [ext_resource type="Texture2D" uid="uid://c1o6axkbbav5l" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="4_cs2tf"]
-[ext_resource type="PackedScene" uid="uid://b8gva0d7dfrq5" path="res://portal.tscn" id="5_cs2tf"]
 [ext_resource type="PackedScene" uid="uid://ddaln2j18iogx" path="res://inimigo.tscn" id="6_bhug5"]
 [ext_resource type="PackedScene" uid="uid://e4iol13r5p10" path="res://moeda.tscn" id="7_5sqpf"]
+[ext_resource type="PackedScene" uid="uid://b22hr7g7k048f" path="res://hud.tscn" id="8_lephe"]
+[ext_resource type="PackedScene" uid="uid://bsglxo6qr8t3t" path="res://portalObj.tscn" id="8_yeb1h"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jbu07"]
 tile_data = PackedInt32Array(0, 196609, 1, 65536, 196609, 2, 131072, 196609, 2, 196608, 196609, 6, 1, 262145, 1, 65537, 262145, 3, 131073, 262145, 3, 196609, 262145, 6, 2, 262145, 1, 65538, 262145, 3, 131074, 262145, 3, 196610, 262145, 6, 3, 262145, 1, 65539, 262145, 3, 131075, 262145, 3, 196611, 262145, 6, 4, 327681, 1, 65540, 327681, 5, 131076, 327681, 5, 196612, 327681, 6)
@@ -166,7 +167,10 @@ texture = ExtResource("4_cs2tf")
 sources/0 = SubResource("TileSetAtlasSource_bhug5")
 sources/2 = SubResource("TileSetAtlasSource_5sqpf")
 
-[node name="fase01" type="Node2D" unique_id=1857251224]
+[node name="fase_01" type="Node2D" unique_id=1857251224]
+
+[node name="portal" parent="." unique_id=643181938 instance=ExtResource("8_yeb1h")]
+position = Vector2(1320, 135)
 
 [node name="player" parent="." unique_id=143351236 instance=ExtResource("1_axix2")]
 position = Vector2(100, 26)
@@ -179,10 +183,6 @@ tile_set = SubResource("TileSet_q1on3")
 tile_map_data = PackedByteArray("AAARAAQAAgABAAEAAAARAAUAAgABAAIAAAARAAYAAgABAAMAAAASAAQAAgACAAEAAAASAAUAAgACAAIAAAASAAYAAgACAAMAAAATAAQAAgADAAEAAAATAAUAAgADAAIAAAATAAYAAgADAAMAAAAXAAQAAgABAAEAAAAXAAUAAgABAAIAAAAXAAYAAgABAAMAAAAYAAQAAgACAAEAAAAYAAUAAgACAAIAAAAYAAYAAgACAAMAAAAZAAQAAgADAAEAAAAZAAUAAgADAAIAAAAZAAYAAgADAAMAAAAHAAEAAgAFAAEAAAAHAAIAAgAFAAIAAAAHAAMAAgAFAAMAAAAIAAEAAgAGAAEAAAAIAAIAAgAGAAIAAAAIAAMAAgAGAAMAAAAJAAEAAgAHAAEAAAAJAAIAAgAHAAIAAAAJAAMAAgAHAAMAAAAaAAUAAgAOAAQAAAAaAAYAAgAOAAUAAAAbAAUAAgAPAAQAAAAcAAUAAgAQAAQAAAAcAAYAAgAQAAUAAAAdAAUAAgARAAQAAAAeAAUAAgASAAQAAAAeAAYAAgASAAUAAAADAAMAAgABAAUAAAALAAMAAgABAAUAAAAPAAgAAgABAAUAAAAVAAYAAgABAAUAAAAfAAgAAgAPAAIAAAAgAAgAAgAQAAIAAAAhAAgAAgARAAIAAAAYABAAAgADAAUAAAAhAA0AAgAPAAIAAAAiAA0AAgAQAAIAAAAjAA0AAgARAAIAAAAOAA4AAgAPAAIAAAAPAA4AAgAQAAIAAAAQAA4AAgARAAIAAAARAA4AAgABAAUAAAAFAAwAAgABAAUAAAA=")
 tile_set = SubResource("TileSet_jbu07")
 
-[node name="portal" parent="." unique_id=1401481132 instance=ExtResource("5_cs2tf")]
-position = Vector2(1428.9999, 117)
-rotation = 1.5463617
-
 [node name="inimigo" parent="." unique_id=2117980196 instance=ExtResource("6_bhug5")]
 position = Vector2(1081, 135)
 
@@ -191,3 +191,23 @@ position = Vector2(204, 49)
 
 [node name="inimigo2" parent="." unique_id=159230753 instance=ExtResource("6_bhug5")]
 position = Vector2(1006, 130)
+
+[node name="HUD" parent="." unique_id=539750988 instance=ExtResource("8_lephe")]
+
+[node name="moeda2" parent="." unique_id=2110191190 instance=ExtResource("7_5sqpf")]
+position = Vector2(1109, 147)
+
+[node name="moeda3" parent="." unique_id=1113696408 instance=ExtResource("7_5sqpf")]
+position = Vector2(1358, 90)
+
+[node name="moeda4" parent="." unique_id=20117238 instance=ExtResource("7_5sqpf")]
+position = Vector2(964, 149)
+
+[node name="moeda5" parent="." unique_id=834725050 instance=ExtResource("7_5sqpf")]
+position = Vector2(818, 142)
+
+[node name="moeda6" parent="." unique_id=183574115 instance=ExtResource("7_5sqpf")]
+position = Vector2(659, 111)
+
+[node name="moeda7" parent="." unique_id=1165922154 instance=ExtResource("7_5sqpf")]
+position = Vector2(340, 95)

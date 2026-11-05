@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b22hr7g7k048f"]
+
+[ext_resource type="Texture2D" uid="uid://du3otdq823y3u" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin (16 x 16).png" id="1_37p78"]
+[ext_resource type="Script" uid="uid://da5rmw3irqpc8" path="res://control.gd" id="1_64ctp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64ctp"]
+atlas = ExtResource("1_37p78")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq4i"]
+atlas = ExtResource("1_37p78")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("1_37p78")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2258"]
+atlas = ExtResource("1_37p78")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1yjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64ctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sq4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_640wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2258")
+}],
+"loop": 1,
+"name": &"moeda",
+"speed": 7.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=539750988]
+
+[node name="Control" type="Control" parent="." unique_id=868034331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64ctp")
+
+[node name="Container" type="MarginContainer" parent="Control" unique_id=507091969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="moedas_conteiner" type="HBoxContainer" parent="Control/Container" unique_id=18907342]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="anim" type="AnimatedSprite2D" parent="Control/Container/moedas_conteiner" unique_id=1724267477]
+position = Vector2(-10, 12)
+scale = Vector2(1.1875, 1)
+sprite_frames = SubResource("SpriteFrames_k1yjx")
+animation = &"moeda"
+autoplay = "moeda"
+frame_progress = 0.98782015
+
+[node name="contador_moedas" type="Label" parent="Control/Container/moedas_conteiner" unique_id=266043269]
+layout_mode = 2
+text = "0000"

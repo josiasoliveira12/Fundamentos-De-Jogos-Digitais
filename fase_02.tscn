@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cysgrir7hv00l" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_advy3"]
 [ext_resource type="Texture2D" uid="uid://c474f74glctgm" path="res://assets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="2_lruuj"]
 [ext_resource type="Texture2D" uid="uid://c1o6axkbbav5l" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="3_dxhdy"]
+[ext_resource type="PackedScene" uid="uid://bsglxo6qr8t3t" path="res://portalObj.tscn" id="4_dxhdy"]
 [ext_resource type="PackedScene" uid="uid://d038k4uvwogdj" path="res://player.tscn" id="4_lruuj"]
-[ext_resource type="PackedScene" uid="uid://b8gva0d7dfrq5" path="res://portal.tscn" id="5_dxhdy"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jbu07"]
 tile_data = PackedInt32Array(0, 196609, 1, 65536, 196609, 2, 131072, 196609, 2, 196608, 196609, 6, 1, 262145, 1, 65537, 262145, 3, 131073, 262145, 3, 196609, 262145, 6, 2, 262145, 1, 65538, 262145, 3, 131074, 262145, 3, 196610, 262145, 6, 3, 262145, 1, 65539, 262145, 3, 131075, 262145, 3, 196611, 262145, 6, 4, 327681, 1, 65540, 327681, 5, 131076, 327681, 5, 196612, 327681, 6)
@@ -178,8 +178,8 @@ tile_set = SubResource("TileSet_vad0t")
 tile_map_data = PackedByteArray("AAAHAAEAAgAFAAEAAAAHAAIAAgAFAAIAAAAHAAMAAgAFAAMAAAAIAAEAAgAGAAEAAAAIAAIAAgAGAAIAAAAIAAMAAgAGAAMAAAAJAAEAAgAHAAEAAAAJAAIAAgAHAAIAAAAJAAMAAgAHAAMAAAArAAAAAgAOAAQAAAArAAEAAgAOAAUAAAAsAAAAAgAPAAQAAAAtAAAAAgAQAAQAAAAtAAEAAgAQAAUAAAAuAAAAAgARAAQAAAAvAAAAAgASAAQAAAAvAAEAAgASAAUAAAAsAAEAAgADAAUAAAADAAMAAgABAAUAAAALAAMAAgABAAUAAAAPAAgAAgABAAUAAAAfAAgAAgAPAAIAAAAgAAgAAgAQAAIAAAAhAAgAAgARAAIAAAAoAAoAAgADAAUAAAAwAA4AAgADAAUAAAA3AAkAAgADAAUAAAA9AAMAAgADAAUAAAAfAAIAAgADAAUAAAAzAAwAAgABAAUAAAAsAAwAAgABAAUAAAA5AAYAAgABAAUAAAAXAAgAAgABAAUAAAA=")
 tile_set = SubResource("TileSet_pb6ve")
 
+[node name="portal" parent="." unique_id=643181938 instance=ExtResource("4_dxhdy")]
+position = Vector2(1002, 33)
+
 [node name="player" parent="." unique_id=143351236 instance=ExtResource("4_lruuj")]
 position = Vector2(78, 10)
-
-[node name="portal" parent="." unique_id=1401481132 instance=ExtResource("5_dxhdy")]
-position = Vector2(1020.99994, 36.999996)
